@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<title>Gra</title>
+
+<script src="Canvas.js"></script>
+<script src="Ball.js"></script>
+
+<script>
+
+restart = false;
+
+function Start()
+{
+if(restart)
+{
+	x = 50;
+	y = 0;
+	score = 0;
+	pace = 10;
+}
+ObstacleParameters = [new Obstacle(300, 0, 800),
+	new Obstacle(heights[Math.floor(Math.random() * 2)], 
+	width + 400, lenghts[Math.floor(Math.random() * 3)]),
+	new Obstacle(heights[Math.floor(Math.random() * 2)], 
+	width + 800, lenghts[Math.floor(Math.random() * 3)])];
+
+document.getElementById('btnStart').style.display = 'none';
+document.getElementById('heros').style.width = '150px';
+document.getElementById('heros').style.height = '150px';
+floor = new Array(width); 
+	for(i = 0; i < 1000; i++)
+		floor[i] = 200;
+
+	canvasStart();
+	ballStart();
+}
+</script>
+
+</head>
+<body>
+
+<canvas id="canvas1" width="800"; height="800" style="border:solid"></canvas>
+<div id="temp"></div>
+
+<img id="heros" src="grafika/giphy.gif" style="position:absolute; width:0px; height:0px;"/>
+
+<img id="horns" src="grafika/horns.png" style="position:absolute; width:800px; height:204px;
+top:610px; left:11px"/>
+
+<img id="carriage_1" src="grafika/carriage.png" style="position:absolute; width:800px; height:300px; top:510px; left:11px"/>
+
+<img id="carriage_2" src="grafika/carriage.png" style="position:absolute; width:0px; height:0px; top:610px; left:600px"/>
+
+<img id="carriage_3" src="grafika/carriage.png" style="position:absolute; width:0px; height:0px; top:610px; left:300px"/>
+
+<img id="cloud_1" src="grafika/cloud_1.png" style="position:absolute; width:200px; height:100px; top:100px; left:150px"/>
+
+<img id="cloud_2" src="grafika/cloud_1.png" style="position:absolute; width:100px; height:70px; top:150px; left:600px"/>
+
+<div id="tempBall"></div>
+<!--<div id="wynik">0</div>-->
+
+<input id="btnStart" type="button" value="Start" onclick="Start();" style="position:absolute; left:250px; top:400px; width:300px; height:100px; color:black; background:white; font-size:60px">
+
+<script>
+	//Start();
+</script>
+
+</body>
+</html>
+ 
