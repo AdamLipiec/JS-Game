@@ -33,14 +33,6 @@ function onLoad()
 	ctx = canvas.getContext('2d');
 	clouds = [document.getElementById('cloud_1').style,
 	document.getElementById('cloud_2').style];
-	
-	/*ctx.clearRect(0, 400, 800, 400);
-
-	p = [new Obstacle(300, 0, 800),
-	new Obstacle(heights[Math.floor(Math.random() * 2)], 
-	width + 400, dlugosc[Math.floor(Math.random() * 3)]),
-	new Obstacle(heights[Math.floor(Math.random() * 2)], 
-	width + 800, dlugosc[Math.floor(Math.random() * 3)])];*/
 
 	obstacles = [document.getElementById('carriage_1').style,
 	document.getElementById('carriage_2').style,
@@ -55,52 +47,22 @@ function generuj()
 
 function backgroundMove()
 {
-	/*for(j=0; j<floor.length;j++)
-		floor[j] = 100;
-	for(i = 0; i < p.length; i++)
-	{
-		ctx.clearRect(p[i].p0, height - p[i].h, p[i].length, p[i].h);
-		p[i].p0 -= pace;
+	score += 0.1;
+	countDist++;
+	if (score > record)
+		record = score;
+	if (countDist == 1000 && pace < 30) {
+		countDist = 0;
+		pace += 2;
 	}
+	ctx.font = "30px Arial";
+	ctx.clearRect(570, 20, 250, 50);
+	ctx.fillText("Distance: " + Math.round(score), 570, 50)
 
-	for(i = 0; i < p.length; i++)
-		if(p[i].p0+p[i].length<=0)
-		{
-			p[i].p0 = width;
-			p[i].h = heights[Math.floor(Math.random() * 2)];	
-			p[i].length = lenghts[Math.floor(Math.random() * 3)];	
-		}
+	ctx.clearRect(0, 20, 250, 50);
+	ctx.fillText("Record: " + Math.round(record), 30, 50)
 
-	for(i = 0; i < p.length; i++)
-	{
-		ctx.fillRect(p[i].p0, height-p[i].h, p[i].length, p[i].h);
-		for(j = p[i].p0; j < p[i].p0 + p[i].length; j++)
-		{
-			if(floor[j] < p[i].h)
-				floor[j] = p[i].h;
-		}*/
-		score += 0.1;	
-		countDist ++;
-		if(score > record)
-			record = score;
-		if(countDist == 1000 && pace < 30)
-		{
-			countDist = 0;
-			pace += 2;
-		}		
-		//document.getElementById('temp').innerHTML = 'floor[x]: ' + floor[x + 150];
-		//document.getElementById('wynik').innerHTML = 'Distance: ' + Math.round(score);
-
-		//document.getElementById('wynik').innerHTML = 'Record: ' + Math.round(record);
-		ctx.font = "30px Arial";	
-		ctx.clearRect(570, 20, 250, 50);	
-		ctx.fillText("Distance: " + Math.round(score), 570, 50)
-
-		ctx.clearRect(0, 20, 250, 50);	
-		ctx.fillText("Record: " + Math.round(record), 30, 50)
-	//}
-	//WAGONY
-	for(j=0; j<floor.length;j++)
+	for (j = 0; j < floor.length; j++)
 		floor[j] = 100;
 
 	for(i = 0; i < obstacles.length; i++)

@@ -54,7 +54,6 @@ function move()
 	+ 'px, 150px,' + shiftBackBall+'px)';
 	document.getElementById('heros').style.left = x - 25 + 'px';
 	document.getElementById('heros').style.top = y + 'px';
-	//document.getElementById('tempBall').innerText='x: '+ x + ' y: ' + y;
 }
 
 function jump() 
@@ -67,7 +66,6 @@ function jump()
 	if(jumpCount < 2)
 	{
 		jumpCount++;
-		//document.getElementById('tempBall').innerText=jumpCount;
 		jumpHandler = window.setInterval('hop()', frames);
 	}
 	else 
